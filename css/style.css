@@ -291,6 +291,7 @@ h4 {
   top: 50%;
   height: 5.5rem;
   width: 5.5rem;
+  padding-bottom: 0.6rem;
   border: none;
   border-radius: 50%;
   font-size: 3.25rem;
@@ -298,7 +299,8 @@ h4 {
   line-height: 0;
   color: #333;
   background: rgba(255, 255, 255, 0.7);
-  cursor: pointer; /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+  cursor: pointer;
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.07);
 }
 
 .slider__btn--left {
@@ -392,4 +394,32 @@ h4 {
 
 .testimonial__location {
   font-size: 1.5rem;
+}
+
+/* CTA */
+.section--cta {
+  padding: 10rem 3rem;
+  background-color: #37383d;
+  border-top: none;
+  border-bottom: 1px solid #444;
+  text-align: center;
+}
+
+.section__title--cta {
+  color: #fff;
+  margin-bottom: 6rem;
+}
+
+.cta-highlight {
+  color: var(--color-primary);
+  font-size: 4.4rem;
+}
+
+.section__title--cta .highlight {
+  z-index: 1;
+}
+
+.btn--cta {
+  font-size: 1.9rem;
+  padding: 2rem 5rem;
 }
