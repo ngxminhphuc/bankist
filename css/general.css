@@ -87,6 +87,10 @@ img {
   transition: filter 0.5s;
 }
 
+svg {
+  pointer-events: none;
+}
+
 .lazy-img {
   filter: blur(20px);
 }

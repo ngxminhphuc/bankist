@@ -64,7 +64,7 @@
     </header>
 
     <main>
-      <section class="section" id="section--features">
+      <section class="section" id="features">
         <div class="section__title">
           <h2 class="section__description">Features</h2>
           <h3 class="section__header">
@@ -304,7 +304,7 @@
         </div>
       </section>
 
-      <section class="section section--cta" id="section--cta">
+      <section class="section section--cta" id="section-cta">
         <div class="section__title section__title--cta">
           <h3 class="section__header">
             The best day to join <span class="cta-highlight">Bankist</span> was
@@ -351,6 +351,42 @@
         >
       </p>
     </footer>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">
+        <svg>
+          <use xlink:href="img/icons.svg#icon-x"></use>
+        </svg>
+      </button>
+      <h2 class="modal__header">
+        Open your bank account <br />
+        in just <span class="highlight">5 minutes</span>
+      </h2>
+      <form action="#" class="modal__form">
+        <label for="first-name" class="modal__label">First Name</label>
+        <input
+          type="text"
+          name="first-name"
+          id="first-name"
+          class="modal__input"
+        />
+
+        <label for="last-name" class="modal__label">Last Name</label>
+        <input
+          type="text"
+          name="last-name"
+          id="last-name"
+          class="modal__input"
+        />
+
+        <label for="email" class="modal__label">Email Address</label>
+        <input type="email" name="email" id="email" class="modal__input" />
+
+        <button class="btn modal__btn">Next step &rarr;</button>
+      </form>
+    </div>
+
+    <div class="overlay hidden"></div>
 
     <script src="js/script.js" defer></script>
   </body>
