@@ -9,6 +9,12 @@ const buttonsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const featuresSect = document.querySelector('#features');
 
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab--container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+const headerNav = document.querySelector('.nav');
+
 const allNavLinks = [
   document.querySelector('.nav'),
   document.querySelector('.footer__nav'),
@@ -64,10 +70,6 @@ allNavLinks.forEach(el =>
 );
 
 // Tabbed component
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab--container');
-const tabsContent = document.querySelectorAll('.operations__content');
-
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('button');
   if (!clicked) return;
@@ -87,3 +89,24 @@ tabsContainer.addEventListener('click', function (e) {
     curActiveContent.classList.remove('operations__content--active');
   }
 });
+
+// Header navigation fade animation
+const handleHover = function (e) {
+  const hovered = e.target;
+  if (
+    hovered.classList.contains('nav__link') ||
+    hovered.classList.contains('nav__logo')
+  ) {
+    const navLinks = hovered.closest('.nav').querySelectorAll('.nav__link');
+    const logo = hovered.closest('.nav').querySelector('img');
+
+    if (hovered !== logo) logo.style.opacity = this;
+
+    navLinks.forEach(link => {
+      if (link !== hovered) link.style.opacity = this;
+    });
+  }
+};
+
+headerNav.addEventListener('mouseover', handleHover.bind(0.5));
+headerNav.addEventListener('mouseout', handleHover.bind(1));
