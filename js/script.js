@@ -16,6 +16,8 @@ const tabsContent = document.querySelectorAll('.operations__content');
 const headerEl = document.querySelector('.header');
 const headerNav = document.querySelector('.nav');
 
+const allSections = document.querySelectorAll('.section');
+
 const allNavLinks = [
   document.querySelector('.nav'),
   document.querySelector('.footer__nav'),
@@ -129,3 +131,23 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 
 headerObserver.observe(headerEl);
+
+// Revealing sections
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.17,
+});
+
+allSections.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
