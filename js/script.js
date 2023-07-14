@@ -138,8 +138,11 @@ const revealSection = function (entries, observer) {
 
   if (!entry.isIntersecting) return;
 
-  entry.target.classList.remove('section--hidden');
+  entry.target.classList.remove('section--hidden', 'mt-8r');
   observer.unobserve(entry.target);
+
+  const hiddenSections = document.querySelectorAll('.section--hidden');
+  hiddenSections[0]?.classList.add('mt-8r');
 };
 
 const sectionObserver = new IntersectionObserver(revealSection, {

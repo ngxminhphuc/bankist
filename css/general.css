@@ -29,6 +29,11 @@ body {
   transform: translateY(8rem);
 }
 
+.section--hidden.mt-8r,
+.section--hidden:first-of-type {
+  margin-top: -8rem;
+}
+
 .section__title {
   max-width: 80rem;
   margin: 0 auto 8rem;
