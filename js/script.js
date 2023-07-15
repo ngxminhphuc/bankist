@@ -17,6 +17,7 @@ const headerEl = document.querySelector('.header');
 const headerNav = document.querySelector('.nav');
 
 const allSections = document.querySelectorAll('.section');
+const imgTargets = document.querySelectorAll('img[data-src]');
 
 const allNavLinks = [
   document.querySelector('.nav'),
@@ -154,3 +155,24 @@ allSections.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+// Lazy loading images
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+
+  const targetEl = entry.target;
+  targetEl.src = targetEl.dataset.src;
+  targetEl.addEventListener('load', () =>
+    targetEl.classList.remove('lazy-img')
+  );
+  observer.unobserve(targetEl);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
